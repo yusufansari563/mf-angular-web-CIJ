@@ -1,0 +1,53 @@
+<!-- <div *ngFor="let article of articles">
+  <h2>{{ article.title }}</h2>
+
+  <p>
+    {{ article.description }}
+  </p>
+  <a href="{{ article.url }}">Read full article</a>
+</div> -->
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<div class="imh-question-answer-container">
+  <div class="imh-intake--title">Intake Questions</div>
+  <div class="imh-intake--intake--info">Answer the following questions.</div>
+  <div class="imh-question-container">
+    <div class="imh_question_name">{{ question.questionNumber }} - {{ question.question }}?</div>
+  </div>
+  <div class="imh-answer-container" *ngIf="question.component === 'checkbox'">
+    <div *ngFor="let q of question.answer" class="imh-check-box-continer">
+      <input class="imh-checkbox" type="checkbox" id="15" />
+      <span class="imh_answer_text"> {{ q }}</span>
+    </div>
+  </div>
+  <div class="imh-answer-container" *ngIf="question.component === 'radio'">
+    <div *ngFor="let q of question.answer" class="imh-check-box-continer">
+      <input class="imh-radio" type="radio" id="15" />
+      <span class="imh_answer_text">{{ q }}</span>
+    </div>
+  </div>
+  <div class="imh-btn-container">
+    <div class="imh-container">
+      <button class="imh_skip_btn">Skip</button>
+      <button (click)="getNext()" 
+      *ngIf="!question.last"
+       class="imh_next_btn">Next</button>
+      <button
+        (click)="reset()"
+        class="imh_next_btn"
+        *ngIf="question.last"
+      >
+        Next
+      </button>
+    </div>
+  </div>
+  <!-- <button class="imh-action-btn btn-next">
+    <a routerLink="/react">Go to React</a>
+  </button> -->
+</div>
