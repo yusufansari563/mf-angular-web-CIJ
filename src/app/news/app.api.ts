@@ -17,7 +17,7 @@ export class ApiService {
 
   getQuestion(number: any): Observable<Question> {
     return this.http
-      .get<Question>('http://localhost:5000/api/v1/question?no=' + number)
+      .get<Question>('https://pxp-angular-backend.herokuapp.com/api/v1/question?no=' + number)
       .pipe((response) => {
         // console.log(response, '<>??');
         return response;
