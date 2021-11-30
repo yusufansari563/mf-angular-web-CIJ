@@ -1,28 +1,38 @@
-import { DoBootstrap, Injector, NgModule } from '@angular/core';
+import { Injector, NgModule } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-// import { AppRoutingModule } from './app-routing.module';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { NewsComponent } from './news/news.component';
+import { AcknowledgmentComponent } from './acknowledgment/acknowledgment.component';
+import { ImhQuestionComponent } from './imh-question/imh-question.component';
+
+const routes: Routes = [
+  { path: 'home', component: ImhQuestionComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'acknowledge', component: AcknowledgmentComponent },
+];
 
 @NgModule({
-  declarations: [AppComponent, NewsComponent],
-  imports: [BrowserModule, HttpClientModule],
+  bootstrap: [AppComponent],
+  declarations: [AppComponent, AcknowledgmentComponent, ImhQuestionComponent],
+  exports: [RouterTestingModule],
+  // entryComponents: [AppComponent],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    RouterTestingModule.withRoutes(routes),
+  ],
   providers: [],
-  bootstrap: [AppComponent, NewsComponent],
-  entryComponents: [
-    AppComponent
-  ]
 })
-export class AppModule implements DoBootstrap{
+export class AppModule {
   constructor(private injector: Injector) {
-    const el = createCustomElement(NewsComponent, { injector: this.injector });
-    customElements.define('imh-question', el);
-    //  to create custom ui injector element of perticular coomponent below code we can refer
-    // const question = createCustomElement(QuestionComponent, { injector });
-    // customElements.define('imh-question', question);
+    const el = createCustomElement(AppComponent, {
+      injector,
+    });
+    customElements.define('component-imh', el);
   }
-  ngDoBootstrap() { }
+  ngDoBootstrap() {}
 }

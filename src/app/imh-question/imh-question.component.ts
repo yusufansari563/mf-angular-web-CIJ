@@ -1,24 +1,22 @@
 import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Question } from '../Interface/QuestionInterface';
-import { ApiService } from '../news/app.api';
+import { ApiService } from './app.api';
 
 @Component({
-  selector: 'app-question',
-  templateUrl: './news.component.html',
-  styleUrls: ['./news.component.scss'],
+  selector: 'app-imh-question',
+  templateUrl: './imh-question.component.html',
+  styleUrls: ['./imh-question.component.scss'],
 })
-
-
-export class NewsComponent implements OnInit {
-  // check:boolean = true;
-  // [class.changestyle]="check"
+export class ImhQuestionComponent implements OnInit {
   @Input() option = '';
   @Input() btnStyle = '';
   question: Question;
   questionNum: string = '';
   @Output('angular-input-event') evt = new EventEmitter<any>();
 
-  constructor(private ApiService: ApiService) {
+  constructor(private ApiService: ApiService, private router: Router) {
+    router: Router;
     this.question = new Question();
   }
 
@@ -36,6 +34,7 @@ export class NewsComponent implements OnInit {
   reset() {
     // console.log('i got called');
     this.evt.emit();
+    this.router.navigateByUrl('/acknowledge');
     // this.ApiService.getQuestion(1).subscribe((resp: Question) => {
     //   console.log(resp, '<>?');
     //   this.question = resp;

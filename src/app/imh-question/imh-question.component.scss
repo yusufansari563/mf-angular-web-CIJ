@@ -1,5 +1,7 @@
-.imh-question-answer-container{
-  width:100%;
+@import "../../styles.scss";
+
+.imh-question-answer-container {
+  width: 100%;
 }
 
 .imh-answer-container {
@@ -25,6 +27,16 @@
   width: 100%;
   button:first-of-type {
     margin-right: 16px;
+  }
+}
+
+@include screen-breakpoint(xs) {
+  .imh-btn-container {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+    width: 100%;
   }
 }
 
@@ -76,42 +88,42 @@
 }
 
 .imh_next_btn {
-	background: #235ba8;
-    border: 2px solid #235ba8;
+  background: #235ba8;
+  border: 2px solid #235ba8;
+  color: #ffffff;
+  box-shadow: 0px 2px 4px 0px rgb(0 0 0 / 30%);
+  font-size: 16px;
+  line-height: 1.25;
+  border-radius: 96px;
+  height: 48px;
+  padding-left: 32px;
+  padding-right: 32px;
+  &:hover {
     color: #ffffff;
-    box-shadow: 0px 2px 4px 0px rgb(0 0 0 / 30%);
-	font-size: 16px;
-    line-height: 1.25;
-    border-radius: 96px;
-    height: 48px;
-    padding-left: 32px;
-    padding-right: 32px;
-	&:hover{
-		color: #ffffff;
-		background: #1a447e;
-		border: 2px solid #1a447e;
-	}
+    background: #1a447e;
+    border: 2px solid #1a447e;
+  }
 }
 
 .imh_skip_btn {
-	height: 48px;
-	width: 100px;
-	background: transparent;
-    border: 2px solid transparent;
+  height: 48px;
+  width: 100px;
+  background: transparent;
+  border: 2px solid transparent;
+  color: #235ba8;
+  font-size: 16px;
+  line-height: 1.25;
+  border-radius: 96px;
+  height: 48px;
+  padding-left: 32px;
+  padding-right: 32px;
+  &:hover {
     color: #235ba8;
-	font-size: 16px;
-    line-height: 1.25;
-    border-radius: 96px;
-    height: 48px;
-    padding-left: 32px;
-    padding-right: 32px;
-	&:hover{
-		color: #235ba8;
-		background: #dddddd;
-		border: 2px solid #dddddd;
-	}
+    background: #dddddd;
+    border: 2px solid #dddddd;
+  }
 }
 
-.imh_question_name{
-  font-size:20px;
+.imh_question_name {
+  font-size: 20px;
 }

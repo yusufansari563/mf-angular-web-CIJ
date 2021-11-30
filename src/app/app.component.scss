@@ -1,10 +1,16 @@
-// :root{
-//     --button-font-size:
-// --button-border-radius:
-// --button-font-color:
-// --button-font-colorBG:
-// --question-font-size:
-// --question-font-color:
-// --QuesOption-font-size:
-// --QuesOption-font-color:
+@import "../styles";
+
+// @include screen-breakpoint(xs) {
+//   .imh-container {
+//     margin: 16px !important;
+//   }
 // }
+// @include screen-breakpoint(sm) {
+//   .imh-container {
+//     margin: 32px !important;
+//   }
+// }
+
+.default-style {
+  font-family: "Open Sans", sans-serif;
+}
