@@ -9,15 +9,20 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   constructor(private router: Router) {}
   title = 'angular-app';
-  @Output('angular-input-event') evt = new EventEmitter<any>();
+  // @Output('angular-input-event-2') evt2 = new EventEmitter<any>();
   inputValue = '';
   ngOnInit() {
     this.router.initialNavigation();
   }
+  printReact(a: any) {
+    console.log(a);
+    // console.log(this.evt2.length);
+    // this.evt2.emit();
+  }
 
   onKey(event: any) {
-    this.inputValue = event.target.value;
-    this.evt.emit(event.target.value);
+    // this.inputValue = event.target.value;
+    // this.evt.emit(event.target.value);
     // document.dispatchEvent(new CustomEvent('angular-input-event', { detail: event.target.value }));
   }
 }
